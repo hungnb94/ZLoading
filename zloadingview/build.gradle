@@ -37,8 +37,6 @@ afterEvaluate {
                 groupId = "${GROUP_ID}"
                 artifactId = "${ARTIFACT_ID}"
                 version = "${PUBLISH_VERSION}"
-                desc = 'Oh hi, this is a nice view of loading animation, right?'
-                website = 'https://github.com/hungnb94/zyao89-zloading'
             }
         }
     }
