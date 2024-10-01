@@ -1,4 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+group = "${GROUP_ID}"
+version = "${PUBLISH_VERSION}"
 
 android {
     compileSdk 28
@@ -25,11 +29,17 @@ dependencies {
     implementation 'com.android.support:support-annotations:28.0.0'
 }
 
-//publish {
-//    userOrg = "${USER_ORG}"
-//    groupId = "${GROUP_ID}"
-//    artifactId = "${ARTIFACT_ID}"
-//    publishVersion = "${PUBLISH_VERSION}"
-//    desc = 'Oh hi, this is a nice view of loading animation, right?'//描述，不重要
-//    website = 'https://github.com/zyao89/ZCustomView'//网站，不重要；
-//}
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = "${GROUP_ID}"
+                artifactId = "${ARTIFACT_ID}"
+                version = "${PUBLISH_VERSION}"
+                desc = 'Oh hi, this is a nice view of loading animation, right?'
+                website = 'https://github.com/hungnb94/zyao89-zloading'
+            }
+        }
+    }
+}
